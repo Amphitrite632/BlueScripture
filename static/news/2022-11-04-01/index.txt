@@ -1,0 +1,6 @@
+<div class="category">お知らせ</div>
+<div class="date">2022/11/04</div>
+<h1>ゲーム「ブルーアーカイブ」のファンサイト「Blue Scripture」がオープンソース化</h1>
+<img src="/news/2022-08-05-01/thumbnail.webp">
+<p><a href="https://twitter.com/amphitrite632" target="_blank">あんふぃとらいと</a>によるブルーアーカイブのファンサイト「Blue Scripture」のソースコードがGitHub上で公開されました。今後はさらなる機能増や利便性の改善などをコミュニティとともに進めていく方針です。</p>
+<p><a href="https://github.com/Amphitrite632/BlueScripture">Amphitrite632/BlueScripture - github.com</a></p>
