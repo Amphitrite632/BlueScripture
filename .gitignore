@@ -1,0 +1,11 @@
+# Artifacts generated in production environment
+nohup.out
+bluescripture
+
+# JetBrains Fleet config location
+.fleet/
+
+# Location of files for which YoStar has rights
+asset/images/background
+asset/images/student_icon
+asset/images/student_portrait
