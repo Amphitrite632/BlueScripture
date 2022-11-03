@@ -1,0 +1,210 @@
+html,
+body,
+h1,
+h2,
+h3,
+p,
+a,
+div,
+span {
+    font-family: 'M PLUS 1p', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 18px;
+    background-color: var(--color-background-gray);
+    color: var(--color-text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text-blue);
+}
+
+.body {
+    margin-top: calc(64px + 2rem);
+}
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    width: 70vw;
+    margin: 1rem auto;
+}
+
+.filter-toggle {
+    margin-left: 1.25rem;
+    color: var(--color-decoration-blue);
+    border: 2px solid var(--color-background-blue);
+    line-height: 1rem;
+    padding: 0.25rem 0.5rem;
+}
+
+#filter-toggle:checked+label {
+    background-color: var(--color-background-blue);
+}
+
+.filters {
+    width: 70vw;
+    margin: 2rem auto;
+    overflow: hidden;
+    transition: cubic-bezier(0, 0, 0.1, 1) 0.5s;
+    transition-property: height;
+}
+
+input {
+    display: none;
+}
+
+label {
+    background-color: var(--color-background-light);
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 16px rgba(0, 0, 16, 0.08);
+    transition: 0.2s;
+}
+
+input:hover+label {
+    background: var(--color-background-gray);
+}
+
+input:checked+label {
+    background: var(--color-background-dark);
+    color: var(--color-text-light);
+}
+
+.filters-categoryname {
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+}
+
+.filters-role,
+.filters-atk,
+.filters-def,
+.filters-position,
+.filters-class,
+.filters-school {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.students {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    width: 70vw;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.student {
+    flex-grow: 1;
+    min-width: 25rem;
+    display: inline-block;
+    background-color: var(--color-background-light);
+    border-radius: 1rem;
+    box-shadow: 0 0 16px rgba(0, 0, 16, 0.08);
+    color: var(--color-text-dark);
+}
+
+.student-container {
+    margin: 1rem 1.5rem;
+}
+
+.student-container-top {
+    display: flex;
+    flex-grow: 0;
+}
+
+.student-icon {
+    z-index: 1;
+    width: 4rem;
+    height: 4rem;
+    background-size: cover;
+    border-radius: 0.36rem;
+    margin-left: 0.36rem;
+}
+
+.student-striker {
+    z-index: 0;
+    position: absolute;
+    width: 1rem;
+    height: 4rem;
+    background-color: var(--color-student-striker);
+    border-radius: 0.36rem;
+}
+
+.student-special {
+    z-index: 0;
+    position: absolute;
+    width: 1rem;
+    height: 4rem;
+    background-color: var(--color-student-special);
+    border-radius: 0.36rem;
+}
+
+.student-name-container {
+    margin-left: 1rem;
+}
+
+.stundent-name-ruby {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.student-name {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+}
+
+.student-name-variant {
+    display: inline;
+    font-size: 1rem;
+}
+
+.student-container-bottom {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.student-params {
+    color: var(--color-text-light);
+    padding: 0 1rem;
+    border-radius: 9999px;
+}
+
+@media (max-width: 1280px) {
+    .filters {
+        width: 90vw;
+    }
+
+    .students {
+        display: grid;
+        grid-template-columns: 90vw;
+        margin: 0 auto;
+        gap: auto;
+    }
+
+    .student,
+    .toolbar,
+    .students {
+        min-width: 90vw;
+    }
+
+    .filter-toggle {
+        margin: 0 0 0 auto;
+    }
+
+}
+
+@media (max-width: 960px) {
+    html {
+        font-size: 16px;
+    }
+}

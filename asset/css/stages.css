@@ -1,0 +1,62 @@
+html,body,h1,h2,h3,p,a,div,span{
+    font-family: 'M PLUS 1p', sans-serif;
+    margin: 0;
+    padding: 0;  
+}
+
+html {
+    font-size: 18px;
+    background-color: var(--color-background-gray);
+    color: var(--color-text-dark);
+}
+
+body {
+    margin-top: 64px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text-blue);
+}
+
+.body {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.area-name {
+    font-style: oblique;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.stages {
+    position: relative;
+}
+
+.stage {
+    border-top: 2px solid var(--color-decoration-lightgray);
+    padding: 0.75rem 0;
+}
+
+.stage-id {
+    position: relative;
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+}
+
+.stage-name {
+    font-size: 1.25rem;
+}
+
+@media (max-width:1280px) {
+    .body {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 960px) {
+    html {
+        font-size: 16px;
+    }
+}

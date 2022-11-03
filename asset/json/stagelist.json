@@ -1,0 +1,200 @@
+{
+	"Area01": [
+		{
+			"StageID": "1-1N",
+			"StageName": "アオバ中心区35番街",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 1,
+			"Landscape": "Town",
+			"DropItem": "T1帽子,T1グローブ,T1シューズ"
+		},
+		{
+			"StageID": "1-2N",
+			"StageName": "D.U.ウェストパーク",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 2,
+			"Landscape": "Town",
+			"DropItem": "T1グローブ,T1バッグ,T1帽子"
+		},
+		{
+			"StageID": "1-3N",
+			"StageName": "クロネコ市場",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 3,
+			"Landscape": "Town",
+			"DropItem": "T1シューズ,T1帽子,T1グローブ"
+		},
+		{
+			"StageID": "1-4N",
+			"StageName": "中央区1番街",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 5,
+			"Landscape": "Town",
+			"DropItem": "T1バッグ,T1シューズ,T1ヘアピン"
+		},
+		{
+			"StageID": "1-5N",
+			"StageName": "D.U.577区域",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 7,
+			"Landscape": "Town",
+			"DropItem": "T1バッジ,T1バッグ,T1帽子"
+		},
+		{
+			"StageID": "1-1H",
+			"StageName": "アオバ中心区99番街",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 3,
+			"Landscape": "Town",
+			"DropItem": "神名文字（ユウカ）,T1帽子,T1お守り,T1バッグ"
+		},
+		{
+			"StageID": "1-2H",
+			"StageName": "D.U.ウェストパーク中心部",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 5,
+			"Landscape": "Town",
+			"DropItem": "神名文字（スズミ）,T1グローブ,T1腕時計,T1バッジ"
+		},
+		{
+			"StageID": "1-3H",
+			"StageName": "クロネコ市場外郭",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 10,
+			"Landscape": "Town",
+			"DropItem": "神名文字（セリカ）,T1シューズ,T1ネックレス,T1ヘアピン"
+		}
+	],
+	"Area02": [
+		{
+			"StageID": "2-1N",
+			"StageName": "双葉公園",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 7,
+			"Landscape": "Town",
+			"DropItem": "T1ヘアピン,T1バッジ,T1腕時計"
+		},
+		{
+			"StageID": "2-2N",
+			"StageName": "北区3丁目",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 8,
+			"Landscape": "Town",
+			"DropItem": "T1ヘアピン,T1腕時計,T1ネックレス"
+		},
+		{
+			"StageID": "2-3N",
+			"StageName": "白門市場86",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 10,
+			"Landscape": "Town",
+			"DropItem": "T1お守り,T1腕時計,T1ヘアピン"
+		},
+		{
+			"StageID": "2-4N",
+			"StageName": "北区芝タウン",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 12,
+			"Landscape": "Town",
+			"DropItem": "T1腕時計,T1お守り,T1ネックレス"
+		},
+		{
+			"StageID": "2-5N",
+			"StageName": "第7業務地区第1区域",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 14,
+			"Landscape": "Town",
+			"DropItem": "T1ネックレス,T1バッジ,T1お守り"
+		},
+		{
+			"StageID": "2-1H",
+			"StageName": "双葉公園スポーツセンター",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 8,
+			"Landscape": "Town",
+			"DropItem": "神名文字（コトリ）,T1バッグ,T1帽子,T1お守り"
+		},
+		{
+			"StageID": "2-2H",
+			"StageName": "近隣公園サービスセンター",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 14,
+			"Landscape": "Town",
+			"DropItem": "神名文字（アカリ）,T1バッジ,T1グローブ,T1腕時計"
+		},
+		{
+			"StageID": "2-3H",
+			"StageName": "北区5丁目",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 20,
+			"Landscape": "Town",
+			"DropItem": "神名文字（ジュンコ）,T1ヘアピン,T1シューズ,T1ネックレス"
+		}
+	],
+	"Area03": [
+		{
+			"StageID": "3-1N",
+			"StageName": "ブラックマーケット1番地",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 17,
+			"Landscape": "Town",
+			"DropItem": "初級戦術教育BD（トリニティ）,初級戦術教育BD（山海経）"
+		},
+		{
+			"StageID": "3-2N",
+			"StageName": "ブラックマーケット南区",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 18,
+			"Landscape": "Town",
+			"DropItem": "初級戦術教育BD（ゲヘナ）,初級戦術教育BD（トリニティ）"
+		},
+		{
+			"StageID": "3-3N",
+			"StageName": "KVハイウェイ第7区域",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 20,
+			"Landscape": "Town",
+			"DropItem": "初級戦術教育BD（ミレニアム）,初級戦術教育BD（ゲヘナ）"
+		},
+		{
+			"StageID": "3-4N",
+			"StageName": "ブラックマーケット北区",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 21,
+			"Landscape": "Town",
+			"DropItem": "初級戦術教育BD（アビドス）,初級戦術教育BD（ミレニアム）"
+		},
+		{
+			"StageID": "3-5N",
+			"StageName": "第三幹線道路 3-51",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 23,
+			"Landscape": "Town",
+			"DropItem": "初級戦術教育BD（百鬼夜行）,初級戦術教育BD（アビドス）"
+		},
+		{
+			"StageID": "3-1H",
+			"StageName": "ブラックマーケット中心部",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 18,
+			"Landscape": "Town",
+			"DropItem": "神名文字（スズミ）,初級戦術教育BD（ミレニアム）,初級戦術教育BD（百鬼夜行）"
+		},
+		{
+			"StageID": "3-2H",
+			"StageName": "ブラックマーケット外郭",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 23,
+			"Landscape": "Town",
+			"DropItem": "神名文字（ハスミ）,初級戦術教育BD（ゲヘナ）,初級戦術教育BD（山海経）"
+		},
+		{
+			"StageID": "3-3H",
+			"StageName": "KVハイウェイ第9区域",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 28,
+			"Landscape": "Town",
+			"DropItem": "神名文字（シロコ）,初級戦術教育BD（トリニティ）,初級戦術教育BD（アビドス）"
+		}
+	]
+}

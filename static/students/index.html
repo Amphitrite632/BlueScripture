@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta charset="utf-8">
+    <meta property="og:title" content="生徒一覧｜Blue Scripture" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://bluescripture.net/asset/images/bg.webp" />
+    <meta property="og:site_name" content="Blue Scripture" />
+    <title>生徒一覧｜Blue Scripture</title>
+    <link rel="shortcut icon" href="/asset/images/favicon.ico">
+    <link rel="stylesheet" href="/asset/css/students.css">
+    <link rel="stylesheet" href="/asset/css/pallet.css">
+    <link rel="stylesheet" href="/asset/css/header.css">
+    <link rel="stylesheet" href="/asset/css/footer.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;500;700&display=swap');
+    </style>
+</head>
+
+<body>
+    </div>
+    <header id="header">
+    </header>
+    <div class="body">
+        <div class="toolbar">
+            <input type="radio" name="order" value="default-order" id="default-order" checked onchange="filterList()">
+            <label for="default-order">デフォルト</label>
+            <input type="radio" name="order" value="name-ascend" id="name-ascend" onchange="filterList()">
+            <label for="name-ascend">名前↑</label>
+            <input type="radio" name="order" value="name-descend" id="name-descend" onchange="filterList()">
+            <label for="name-descend">名前↓</label>
+            <input type="checkbox" name="filter-toggle" value="filter-toggle" id="filter-toggle"
+                onchange="toggleFilter(this.checked)">
+            <label class="filter-toggle" for="filter-toggle"><span
+                    class="material-symbols-outlined">filter_alt</span></label>
+        </div>
+        <form class="filters" id="filters">
+            <p class="filters-categoryname">役割</p>
+            <div class="filters-role">
+                <input type="checkbox" class="filter" name="filter" value="STRIKER" id="striker" onchange="filterList()"
+                    data-filter-key="Role">
+                <label for="striker">STRIKER</label>
+                <input type="checkbox" class="filter" name="filter" value="SPECIAL" id="special" onchange="filterList()"
+                    data-filter-key="Role">
+                <label for="special">SPECIAL</label>
+            </div>
+            <p class="filters-categoryname">攻撃属性</p>
+            <div class="filters-atk">
+                <input type="checkbox" class="filter" name="filter" value="爆発" id="atk-explode" onchange="filterList()"
+                    data-filter-key="Atk">
+                <label for="atk-explode">爆発</label>
+                <input type="checkbox" class="filter" name="filter" value="貫通" id="atk-penetrate"
+                    onchange="filterList()" data-filter-key="Atk">
+                <label for="atk-penetrate">貫通</label>
+                <input type="checkbox" class="filter" name="filter" value="神秘" id="atk-mystery" onchange="filterList()"
+                    data-filter-key="Atk">
+                <label for="atk-mystery">神秘</label>
+            </div>
+            <p class="filters-categoryname">防御属性</p>
+            <div class="filters-def">
+                <input type="checkbox" class="filter" name="filter" value="重装" id="def-heavy" onchange="filterList()"
+                    data-filter-key="Def">
+                <label for="def-heavy">重装</label>
+                <input type="checkbox" class="filter" name="filter" value="軽装" id="def-light" onchange="filterList()"
+                    data-filter-key="Def">
+                <label for="def-light">軽装</label>
+                <input type="checkbox" class="filter" name="filter" value="特殊" id="def-special" onchange="filterList()"
+                    data-filter-key="Def">
+                <label for="def-special">特殊</label>
+            </div>
+            <p class="filters-categoryname">ポジション</p>
+            <div class="filters-position">
+                <input type="checkbox" class="filter" name="filter" value="FRONT" id="front" onchange="filterList()"
+                    data-filter-key="Position">
+                <label for="front">FRONT</label>
+                <input type="checkbox" class="filter" name="filter" value="MIDDLE" id="middle" onchange="filterList()"
+                    data-filter-key="Position">
+                <label for="middle">MIDDLE</label>
+                <input type="checkbox" class="filter" name="filter" value="BACK" id="back" onchange="filterList()"
+                    data-filter-key="Position">
+                <label for="back">BACK</label>
+            </div>
+            <p class="filters-categoryname">クラス</p>
+            <div class="filters-class">
+                <input type="checkbox" class="filter" name="filter" value="タンク" id="tank" onchange="filterList()"
+                    data-filter-key="Class">
+                <label for="tank">タンク</label>
+                <input type="checkbox" class="filter" name="filter" value="アタッカー" id="atacker" onchange="filterList()"
+                    data-filter-key="Class">
+                <label for="atacker">アタッカー</label>
+                <input type="checkbox" class="filter" name="filter" value="ヒーラー" id="healer" onchange="filterList()"
+                    data-filter-key="Class">
+                <label for="healer">ヒーラー</label>
+                <input type="checkbox" class="filter" name="filter" value="サポーター" id="supporter" onchange="filterList()"
+                    data-filter-key="Class">
+                <label for="supporter">サポーター</label>
+                <input type="checkbox" class="filter" name="filter" value="T.S" id="ts" onchange="filterList()"
+                    data-filter-key="Class">
+                <label for="ts">T.S</label>
+            </div>
+            <p class="filters-categoryname">学校</p>
+            <div class="filters-school">
+                <input type="checkbox" class="filter" name="filter" value="アビドス" id="abydos" onchange="filterList()"
+                    data-filter-key="School">
+                <label for="abydos">アビドス</label>
+                <input type="checkbox" class="filter" name="filter" value="アリウス" id="arius" onchange="filterList()"
+                    data-filter-key="School">
+                <label for="arius">アリウス</label>
+                <input type="checkbox" class="filter" name="filter" value="ゲヘナ" id="gehenna" onchange="filterList()"
+                    data-filter-key="School">
+                <label for="gehenna">ゲヘナ</label>
+                <input type="checkbox" class="filter" name="filter" value="百鬼夜行" id="hyakkiyako" onchange="filterList()"
+                    data-filter-key="School">
+                <label for="hyakkiyako">百鬼夜行</label>
+                <input type="checkbox" class="filter" name="filter" value="ミレニアム" id="millennium"
+                    onchange="filterList()" data-filter-key="School">
+                <label for="millennium">ミレニアム</label>
+                <input type="checkbox" class="filter" name="filter" value="レッドウィンター" id="redwinter"
+                    onchange="filterList()" data-filter-key="School">
+                <label for="redwinter">レッドウィンター</label>
+                <input type="checkbox" class="filter" name="filter" value="山海経" id="shanhaijing" onchange="filterList()"
+                    data-filter-key="School">
+                <label for="shanhaijing">山海経</label>
+                <input type="checkbox" class="filter" name="filter" value="SRT特殊学園" id="srt" onchange="filterList()"
+                    data-filter-key="School">
+                <label for="srt">SRT特殊学園</label>
+                <input type="checkbox" class="filter" name="filter" value="トリニティ" id="trinity" onchange="filterList()"
+                    data-filter-key="School">
+                <label for="trinity">トリニティ</label>
+                <input type="checkbox" class="filter" name="filter" value="ヴァルキューレ" id="valkyrie"
+                    onchange="filterList()" data-filter-key="School">
+                <label for="valkyrie">ヴァルキューレ</label>
+                <input type="checkbox" class="filter" name="filter" value="？？？" id="others" onchange="filterList()"
+                    data-filter-key="School">
+                <label for="others">その他</label>
+            </div>
+        </form>
+        <div class="students" id="students">
+        </div>
+    </div>
+    <footer id="footer">
+    </footer>
+    <script src="/asset/js/students.js"></script>
+    <script src="/asset/js/menu.js"></script>
+    <script src="/asset/js/templateLoader.js"></script>
+</body>
+
+</html>

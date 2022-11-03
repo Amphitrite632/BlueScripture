@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta charset="utf-8">
+        {{ .ogp_title }}
+        {{ .ogp_image }}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Blue Scripture" />
+        <title>{{ .title }}</title>
+        <link rel="shortcut icon" href="/asset/images/favicon.ico">
+        <link rel="stylesheet" href="/asset/css/news-template.css">
+        <link rel="stylesheet" href="/asset/css/pallet.css">
+        <link rel="stylesheet" href="/asset/css/header.css">
+        <link rel="stylesheet" href="/asset/css/footer.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;500;700&display=swap');
+        </style>
+    </head>
+    <body>
+        </div>
+        <header id="header">
+        </header>
+        <div class="body">
+            {{ .body }}
+        <div class="foot-line"></div>
+        <div class="share-icons-container">
+            <a class="sharebutton" id="tweetbutton" href="{{ .link }}" target="_blank">
+                <img class="share-icon" src="/asset/images/tweetbutton.svg">
+            </a>
+            <button class="sharebutton" id="linkbutton" onclick="onLinkButtonClick()">
+                <img class="share-icon" src="/asset/images/linkbutton.svg">
+            </button>
+        </div>
+        </div>
+        <footer id="footer">
+        </footer>
+        <script src="/asset/js/linkButton.js"></script>
+        <script src="/asset/js/menu.js"></script>
+        <script src="/asset/js/templateLoader.js"></script>
+    </body>
+</html>

@@ -1,0 +1,121 @@
+header {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: fit-content;
+    box-shadow: 0 0 16px var(--color-shadow);
+}
+
+.header-container {
+    width: 100%;
+    height: 64px;
+    background-color: var(--color-background-dark);
+}
+
+.header {
+    display: flex;
+    width: 1050px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.navi {
+    height: 100%;
+}
+
+.navi a {
+    position: relative;
+    align-content: center;
+    width: fit-content;
+    line-height: 64px;
+    margin: 0 1rem;
+    transition: 0.3s; 
+    color: var(--color-text-light);
+}
+
+    .navi a:hover {
+        color: var(--color-text-blue);
+    }
+
+    .navi a::after {
+        position: absolute;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: var(--color-text-blue);
+        bottom: -1px;               
+        transform: scale(0, 1);     
+        transform-origin: left top; 
+        transition: 0.3s; 
+    }
+    
+    .navi a:hover::after {
+    transform: scale(1, 1);
+    }
+
+.logo {
+    height: 100%;
+    width: 214.45px;
+}
+
+.menu-button {
+    display: none;
+    margin: 0 0 0 auto;
+    height: 64px;
+    width: 64px;
+    background-image: url(/asset/images/menu.svg);
+    background-color: transparent;
+    border: 0;
+}
+
+.navi-dropdown {
+    display: none;
+    flex-direction: column;
+    background-color: var(--color-background-dark);
+    width: 100%;
+    overflow: hidden;
+    animation: ease-out;
+    height: 0;
+    animation-duration: 0.35s;
+    animation-fill-mode: forwards;
+}
+
+.navi-dropdown a {
+    margin: 0.75rem 1rem;
+    color: var(--color-text-light);
+}
+
+@keyframes dropdown-show {
+    from {
+        height: 0;
+    }
+    to {
+        height: 9rem;
+    }
+}
+
+@keyframes dropdown-hide {
+    from {
+        height: 9rem;
+    }
+    to {
+        height: 0;
+    }
+}
+
+@media (max-width: 1280px) {
+    .header {
+        width: 100%;
+    }
+    .navi {
+        display: none;
+    }
+    .menu-button {
+        display: inline-block;
+    }
+    .navi-dropdown {
+        display: flex;
+    }
+}

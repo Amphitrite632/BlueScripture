@@ -1,0 +1,5 @@
+<div class="category">お知らせ</div>
+<div class="date">2022/08/05</div>
+<h1>ゲーム「ブルーアーカイブ」のファンサイト「Blue Scripture」がサービス開始</h1>
+<img src="/news/2022-08-05-01/thumbnail.webp">
+<p><a href="https://twitter.com/amphitrite632" target="_blank">あんふぃとらいと</a>によるブルーアーカイブのファンサイト「Blue Scripture」がサービスを開始しました。現在はVer0.9.0のベータテスト中ということで機能も少ないですが、Ver1.0以降ではキャラクターと任務の一覧表も追加される予定です。</p>

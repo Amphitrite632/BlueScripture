@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta charset="utf-8">
+        <meta property="og:title" content="ニュースを検索｜Blue Scripture" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://bluescripture.net/asset/images/bg.webp" />
+        <meta property="og:site_name" content="Blue Scripture" />
+        <title>ニュースを検索｜Blue Scripture</title>
+        <link rel="shortcut icon" href="/asset/images/favicon.ico">
+        <link rel="stylesheet" href="/asset/css/news-index.css">
+        <link rel="stylesheet" href="/asset/css/pallet.css">
+        <link rel="stylesheet" href="/asset/css/header.css">
+        <link rel="stylesheet" href="/asset/css/footer.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;500;700&display=swap');
+        </style>
+    </head>
+    <body>
+        </div>
+        <header id="header">
+        </header>
+        <div class="head-navi">
+            <div class="head-navi-container">
+                <h1>NEWS</h1>
+                <div class="head-navi-search-container">
+                    <div class="head-navi-search-container-absolute">
+                        <form action="/search" method="GET" onsubmit="onSearchSubmit()">
+                            <input name="keyword" type="search" class="head-navi-search-input" id="searchBox" placeholder="ニュースを検索">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div id="searchResult" class="news-cards"></div>
+        </div>
+        <footer id="footer">
+        </footer>
+        <script src="/asset/js/search.js"></script>
+        <script src="/asset/js/menu.js"></script>
+        <script src="/asset/js/templateLoader.js"></script>
+    </body>
+</html>

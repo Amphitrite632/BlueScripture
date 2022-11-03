@@ -1,0 +1,5 @@
+<div class="category">お知らせ</div>
+<div class="date">2022/09/19</div>
+<h1>ゲーム「ブルーアーカイブ」のファンサイト「Blue Scripture」が正式リリース</h1>
+<img src="/news/2022-08-05-01/thumbnail.webp">
+<p><a href="https://twitter.com/amphitrite632" target="_blank">あんふぃとらいと</a>によるブルーアーカイブのファンサイト「Blue Scripture」がベータテスト期間を終え、正式リリースとなりました。今後は生徒一覧への詳細情報の追加や任務一覧の作成など、さらなる機能の充実化に向けて開発を続けていく予定です。</p>
