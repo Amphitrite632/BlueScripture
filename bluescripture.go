@@ -49,7 +49,7 @@ func studentsRequestHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func newsRequestHandler(w http.ResponseWriter, r *http.Request) {
-	if !regexp.MustCompile(`^/news/\d\d\d\d-\d\d-\d\d-\d\d/$`).MatchString(r.URL.Path) {
+	if !regexp.MustCompile(`^/news/\d{4}-\d{2}-\d{2}-\d{2}/$`).MatchString(r.URL.Path) {
 		var path string = strings.Replace(r.URL.Path, "/news/", "static/news/", 1)
 		http.ServeFile(w, r, path)
 		return
@@ -96,20 +96,9 @@ func newsIndexRequestHandler(w http.ResponseWriter, r *http.Request) {
 			var articleinfo info
 			var categoryTag string
 			json.Unmarshal(jsonData, &articleinfo)
-			if articleinfo.Category == "mainstory" {
-				categoryTag = "<div class=\"card-category\" data-category=\"mainstory\">メインストーリー</div>"
-			} else if articleinfo.Category == "campaign" {
-				categoryTag = "<div class=\"card-category\" data-category=\"campaign\">キャンペーン</div>"
-			} else if articleinfo.Category == "pickup" {
-				categoryTag = "<div class=\"card-category\" data-category=\"pickup\">ピックアップ募集</div>"
-			} else if articleinfo.Category == "notice" {
+			switch articleinfo.Category {
+			case "notice":
 				categoryTag = "<div class=\"card-category\" data-category=\"notice\">お知らせ</div>"
-			} else if articleinfo.Category == "guide" {
-				categoryTag = "<div class=\"card-category\" data-category=\"guide\">攻略情報</div>"
-			} else if articleinfo.Category == "goods" {
-				categoryTag = "<div class=\"card-category\" data-category=\"goods\">グッズ情報</div>"
-			} else if articleinfo.Category == "other" {
-				categoryTag = "<div class=\"card-category\" data-category=\"other\">ゲーム全般</div>"
 			}
 			text += "<a class=\"card\" href=\"/news/" + paths[i] + "/\"><img class=\"card-thumbnail\" src=\"" + articleinfo.Thumbnail + "\"><div class=\"card-description\">\n" + categoryTag + "<div class=\"card-title\">" + articleinfo.Title + "</div><div class=\"card-date\">" + articleinfo.Date + "</div></div></a>"
 		}
