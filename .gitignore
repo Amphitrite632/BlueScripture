@@ -5,6 +5,13 @@ bluescripture
 # JetBrains Fleet config location
 .fleet/
 
+# Common node modules locations
+/node_modules
+
+# JS files built during development
+asset/js/*
+src/*.js
+
 # Location of files for which YoStar has rights
 asset/images/background
 asset/images/student_icon
