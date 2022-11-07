@@ -1,40 +1,35 @@
-async function search(query) {
+interface ArticleInfo {
+    category: string,
+    date: string,
+    thumbnail: string,
+    title: string,
+    url: string
+}
+
+async function search(query: string) {
     const regex = new RegExp(query);
 
     const articleTitles = await (await fetch("/asset/json/articlelist.json")).json();
     const articles = await Promise.all(
-        articleTitles.map(async (date) => {
+        articleTitles.map(async (date: string) => {
         const article = await fetch(`/news/${date}/index.txt`);
         const text = await article.text();
         return { date, text };
         })
     );
 
-    const searchResult = articles.filter(({ text }) => regex.test(text));
+    const searchResult: ArticleInfo[] = articles.filter(({ text }) => regex.test(text));
 
     return searchResult;
 }
 
-async function getArticleInfo(date) {
+async function getArticleInfo(date: string) {
     const info = await (await fetch(`/news/${date}/index.json`)).json();
-    console.log(info)
     return info
 }
 
-function createCardElement({title, text}) {
-    const titleElement = document.createElement("h2");
-    titleElement.appendChild(document.createTextNode(title));
-    const textElement = document.createElement("p");
-    textElement.appendChild(document.createTextNode(text));
-    
-    const cardElement = document.createElement("section");
-    cardElement.appendChild(titleElement);
-    cardElement.appendChild(textElement);
-    return cardElement;
-}
-
 /** 検索結果のカードを生成 */
-function createResultCard(title, category, date, url,  thumbnail) {
+function createResultCard(title: string, category: string, date: string, url: string,  thumbnail: string) {
     const card = document.createElement("a");
     card.classList.add("card");
     card.setAttribute("href", url);
@@ -86,15 +81,17 @@ async function searchQuery() {
     const queryString = new URLSearchParams(window.location.search);
     if (queryString.has("keyword")) {
         const query = queryString.get("keyword");
-
+        if (query === null) {
+            return
+        }
         const searchResult = await search(query)
-        let resultArticlesInfo = {};
-        let cardElements = ""
+        let resultArticlesInfo: ArticleInfo
+        let cardElements: HTMLElement
         for (let i = 0; i < searchResult.length; i++) {
             resultArticlesInfo = await getArticleInfo(searchResult[i].date)
-            cardElements = createResultCard(resultArticlesInfo.title, resultArticlesInfo.category, resultArticlesInfo.date, resultArticlesInfo.url, resultArticlesInfo.thumbnail);
+            cardElements = createResultCard(resultArticlesInfo.title, resultArticlesInfo.category, resultArticlesInfo.date, resultArticlesInfo.url, resultArticlesInfo.thumbnail)
             const resultsEle = document.getElementById("searchResult");
-            resultsEle.appendChild(cardElements); 
+            resultsEle!.appendChild(cardElements);
         }
     }
 }

@@ -1,0 +1,23 @@
+{
+  "name": "bluescripture",
+  "version": "1.0.0",
+  "description": "![BlueScripture_Header](https://user-images.githubusercontent.com/64777517/199688177-b20cb4b9-b8c4-4489-aca2-87648e91e558.png)\r Blue ScriptureはYostarによるスマートフォン向けゲーム「[ブルーアーカイブ（ブルアカ）](https://bluearchive.jp)」の情報を集積・発信しているファンサイトです。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amphitrite632/BlueScripture.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amphitrite632/BlueScripture/issues"
+  },
+  "homepage": "https://github.com/Amphitrite632/BlueScripture#readme",
+  "dependencies": {
+    "typescript": "^4.8.4"
+  }
+}
