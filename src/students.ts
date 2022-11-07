@@ -55,24 +55,24 @@ function jsonToList(jsonData: [StudentInfo]) {
         output += "<div class=\"student-container-bottom\">\n"
 
         if (jsonData[i].Atk == "爆発") {
-            output += "<div class=\"student-params\" style=\"background-color:var(--color-student-params-red);\">爆発</div>\n"
+            output += "<div class=\"student-params\" style=\"background-color:let(--color-student-params-red);\">爆発</div>\n"
         } else if (jsonData[i].Atk == "貫通") {
-            output += "<div class=\"student-params\" style=\"background-color:var(--color-student-params-yellow);\">貫通</div>\n"
+            output += "<div class=\"student-params\" style=\"background-color:let(--color-student-params-yellow);\">貫通</div>\n"
         } else if (jsonData[i].Atk == "神秘") {
-            output += "<div class=\"student-params\" style=\"background-color:var(--color-student-params-blue);\">神秘</div>\n"
+            output += "<div class=\"student-params\" style=\"background-color:let(--color-student-params-blue);\">神秘</div>\n"
         }
 
         if (jsonData[i].Def == "軽装") {
-            output += "<div class=\"student-params\" style=\"background-color:var(--color-student-params-red);\">軽装</div>\n"
+            output += "<div class=\"student-params\" style=\"background-color:let(--color-student-params-red);\">軽装</div>\n"
         } else if (jsonData[i].Def == "重装") {
-            output += "<div class=\"student-params\" style=\"background-color:var(--color-student-params-yellow);\">重装</div>\n"
+            output += "<div class=\"student-params\" style=\"background-color:let(--color-student-params-yellow);\">重装</div>\n"
         } else if (jsonData[i].Def == "特殊") {
-            output += "<div class=\"student-params\" style=\"background-color:var(--color-student-params-blue);\">特殊</div>\n"
+            output += "<div class=\"student-params\" style=\"background-color:let(--color-student-params-blue);\">特殊</div>\n"
         }
 
-        output += "<div class=\"student-params\" style=\"background-color:var(--color-student-params-gray);\">" + jsonData[i].Position + "</div>\n"
+        output += "<div class=\"student-params\" style=\"background-color:let(--color-student-params-gray);\">" + jsonData[i].Position + "</div>\n"
 
-        output += "<div class=\"student-params\" style=\"background-color:var(--color-student-params-gray);\">" + jsonData[i].Class + "</div>\n"
+        output += "<div class=\"student-params\" style=\"background-color:let(--color-student-params-gray);\">" + jsonData[i].Class + "</div>\n"
 
         output += "</div>\n</div>\n</a>"
     }
@@ -84,7 +84,7 @@ function jsonToList(jsonData: [StudentInfo]) {
 /**生徒一覧を名前順にソートする*/
 function filterList() {
     const query: string[] = []
-    var filterEles = Array.prototype.slice.call(document.getElementsByClassName("filter"))
+    let filterEles = Array.prototype.slice.call(document.getElementsByClassName("filter"))
     for (let i = 0; i < filterEles.length; i++) {
         if (filterEles[i].checked == true) {
             query.push(filterEles[i].value)
@@ -97,13 +97,13 @@ function filterList() {
             console.log(arr)
             for (let i = 0; i < query.length; i++) {
                 arr = arr.filter((elem:string[]) => {
-                    var value = Object.values(elem)
+                    let value = Object.values(elem)
                     return value.includes(query[i])
                 })
                 console.log(arr)
             }
-            var acsendEle = document.getElementById("name-ascend") as HTMLInputElement
-            var decsendEle = document.getElementById("name-descend") as HTMLInputElement
+            let acsendEle = document.getElementById("name-ascend") as HTMLInputElement
+            let decsendEle = document.getElementById("name-descend") as HTMLInputElement
             if (acsendEle!.checked) {
                 arr.sort(function (a: StudentInfo, b: StudentInfo) {
                     if (a["Ruby"] < b["Ruby"]) return -1;

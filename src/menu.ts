@@ -1,5 +1,5 @@
-var isDropDownShow = false;
-var dropdownNaviEle = document.getElementById("navi-dropdown");
+let isDropDownShow = false;
+let dropdownNaviEle = document.getElementById("navi-dropdown");
 
 function onMenuButtonClick() {
     if (isDropDownShow == false) {
