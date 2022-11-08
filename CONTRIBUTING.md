@@ -12,8 +12,7 @@
 - リポジトリをcloneする
 - TypeScriptをトランスパイルする
     1. リポジトリのルートで`npm install`を実行して必要なモジュールをインストールする
-    2. `npx tsc`を実行してTypeScriptファイルをトランスパイルする
-    3. `asset/js`フォルダを作成し、生成されたJavaScriptファイルを移動する
+    2. `npm run build`を実行してTypeScriptファイルをトランスパイルする
 - バックエンドを起動する
 bluescripture.goの実行方法の例を以下に示します。
     - IDEのデバッグ機能を使う(オススメ)
