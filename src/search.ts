@@ -27,9 +27,26 @@ async function search(query: string) {
     return searchResult
 }
 
-async function getArticleInfo(date: string) {
-    const info:ArticleInfo = await (await fetch(`/news/${date}/index.json`)).json() as ArticleInfo
-    return info
+async function getArticleInfo(date: string): Promise<ArticleInfo> {
+    const resp = await fetch(`/news/${date}/index.json`)
+    const articleInfo = await resp.json()
+    if (validateArticleInfo(articleInfo)) {
+        return articleInfo
+    } else {
+        throw new Error("Invalid ArticleInfo")
+    }
+}
+
+function validateArticleInfo(obj: unknown): obj is ArticleInfo {
+    if (typeof obj !== "object" || obj === null) return false
+    const articleInfo = obj as Record<keyof ArticleInfo, unknown>;
+
+    if (typeof articleInfo.category !== "string") return false
+    if (typeof articleInfo.date !== "string") return false
+    if (typeof articleInfo.thumbnail !== "string") return false
+    if (typeof articleInfo.title !== "string") return false
+    if (typeof articleInfo.url !== "string") return false
+    return true;
 }
 
 /** 検索結果のカードを生成 */
