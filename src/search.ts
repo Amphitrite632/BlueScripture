@@ -1,52 +1,56 @@
 interface ArticleInfo {
-    category: string,
-    date: string,
-    thumbnail: string,
-    title: string,
+    category: string
+    date: string
+    thumbnail: string
+    title: string
     url: string
 }
 
-async function search(query: string) {
-    const regex = new RegExp(query);
+interface ArticleDescription {
+    date: string,
+    text: string,
+}
 
-    const articleTitles = await (await fetch("/asset/json/articlelist.json")).json();
+async function search(query: string) {
+    const regex = new RegExp(query)
+    const articleTitles:string[] = await (await fetch("/asset/json/articlelist.json")).json() as string[]
     const articles = await Promise.all(
         articleTitles.map(async (date: string) => {
-        const article = await fetch(`/news/${date}/index.txt`);
-        const text = await article.text();
-        return { date, text };
+            const article = await fetch(`/news/${date}/index.txt`)
+            const text = await article.text()
+            return { date, text }
         })
-    );
+    )
 
-    const searchResult: ArticleInfo[] = articles.filter(({ text }) => regex.test(text));
+    const searchResult: ArticleDescription[] = articles.filter(({ text }) => regex.test(text))
 
-    return searchResult;
+    return searchResult
 }
 
 async function getArticleInfo(date: string) {
-    const info = await (await fetch(`/news/${date}/index.json`)).json();
+    const info:ArticleInfo = await (await fetch(`/news/${date}/index.json`)).json() as ArticleInfo
     return info
 }
 
 /** 検索結果のカードを生成 */
-function createResultCard(title: string, category: string, date: string, url: string,  thumbnail: string) {
-    const card = document.createElement("a");
-    card.classList.add("card");
-    card.setAttribute("href", url);
+function createResultCard(title: string, category: string, date: string, url: string, thumbnail: string) {
+    const card = document.createElement("a")
+    card.classList.add("card")
+    card.setAttribute("href", url)
 
-    const img = document.createElement("img");
-    img.src = thumbnail;
+    const img = document.createElement("img")
+    img.src = thumbnail
 
-    const descriptionEle = document.createElement("div");
-    descriptionEle.classList.add("card-description");
+    const descriptionEle = document.createElement("div")
+    descriptionEle.classList.add("card-description")
 
     const titleEle = document.createElement("div")
     titleEle.classList.add("card-title")
-    titleEle.innerText = title;
+    titleEle.innerText = title
 
-    const categoryEle = document.createElement("div");
+    const categoryEle = document.createElement("div")
     categoryEle.classList.add("card-category")
-    categoryEle.dataset.category = category;
+    categoryEle.dataset.category = category
     if (category == "mainstory") {
         categoryEle.innerHTML = "メインストーリー"
     } else if (category == "campaign") {
@@ -63,24 +67,24 @@ function createResultCard(title: string, category: string, date: string, url: st
         categoryEle.innerHTML = "ゲーム全般"
     }
 
-    const dateEle = document.createElement("div");
-    dateEle.classList.add("card-date");
+    const dateEle = document.createElement("div")
+    dateEle.classList.add("card-date")
     dateEle.innerText = date
 
-    card.appendChild(img);
-    card.appendChild(descriptionEle);
-    descriptionEle.appendChild(categoryEle);
-    descriptionEle.appendChild(titleEle);
-    descriptionEle.appendChild(dateEle);
+    card.appendChild(img)
+    card.appendChild(descriptionEle)
+    descriptionEle.appendChild(categoryEle)
+    descriptionEle.appendChild(titleEle)
+    descriptionEle.appendChild(dateEle)
 
-    return card;
+    return card
 }
 
 /** URLに検索クエリがあった場合searchを呼び出す */
 async function searchQuery() {
-    const queryString = new URLSearchParams(window.location.search);
+    const queryString = new URLSearchParams(window.location.search)
     if (queryString.has("keyword")) {
-        const query = queryString.get("keyword");
+        const query = queryString.get("keyword")
         if (query === null) {
             return
         }
@@ -90,10 +94,10 @@ async function searchQuery() {
         for (let i = 0; i < searchResult.length; i++) {
             resultArticlesInfo = await getArticleInfo(searchResult[i].date)
             cardElements = createResultCard(resultArticlesInfo.title, resultArticlesInfo.category, resultArticlesInfo.date, resultArticlesInfo.url, resultArticlesInfo.thumbnail)
-            const resultsEle = document.getElementById("searchResult");
-            resultsEle!.appendChild(cardElements);
+            const resultsEle = document.getElementById("searchResult")
+            resultsEle!.appendChild(cardElements)
         }
     }
 }
 // window が読みこまれたときに発火
-window.addEventListener("DOMContentLoaded", searchQuery);
+void searchQuery()
