@@ -11,65 +11,94 @@ interface ArticleDescription {
     text: string,
 }
 
-async function search(query: string) {
+async function search(query: string): Promise<ArticleDescription[]> {
+    const resp = await fetch("/asset/json/articlelist.json")
+    const articleTitles: unknown = await resp.json()
+    if (!validateArticleList(articleTitles)) throw new Error("Invalid article list")
+    
     const regex = new RegExp(query)
-    const articleTitles:string[] = await (await fetch("/asset/json/articlelist.json")).json() as string[]
-    const articles = await Promise.all(
+    const articles = (await Promise.all(
         articleTitles.map(async (date: string) => {
             const article = await fetch(`/news/${date}/index.txt`)
             const text = await article.text()
-            return { date, text }
+            return regex.test(text) ? [{ date, text }] : []
         })
-    )
+    )).flat()
 
-    const searchResult: ArticleDescription[] = articles.filter(({ text }) => regex.test(text))
-
-    return searchResult
+    return articles
 }
 
-async function getArticleInfo(date: string) {
-    const info:ArticleInfo = await (await fetch(`/news/${date}/index.json`)).json() as ArticleInfo
-    return info
+function validateArticleList(obj: unknown): obj is string[] {
+    if (!Array.isArray(obj)) return false
+    return obj.every((e) => typeof e === "string" && /\d{4}-\d{2}-\d{2}-\d{2}/.test(e))
+}
+
+async function getArticleInfo(date: string): Promise<ArticleInfo> {
+    const resp = await fetch(`/news/${date}/index.json`)
+    const articleInfo: unknown = await resp.json()
+    
+    if (!validateArticleInfo(articleInfo)) throw new Error("Invalid ArticleInfo")
+    return articleInfo
+}
+
+function validateArticleInfo(obj: unknown): obj is ArticleInfo {
+    if (typeof obj !== "object" || obj === null) return false
+    const articleInfo = obj as Record<keyof ArticleInfo, unknown>
+
+    if (typeof articleInfo.category !== "string") return false
+    if (typeof articleInfo.date !== "string") return false
+    if (typeof articleInfo.thumbnail !== "string") return false
+    if (typeof articleInfo.title !== "string") return false
+    if (typeof articleInfo.url !== "string") return false
+    return true
 }
 
 /** 検索結果のカードを生成 */
-function createResultCard(title: string, category: string, date: string, url: string, thumbnail: string) {
+function createResultCard(articleInfo: ArticleInfo): HTMLElement {
     const card = document.createElement("a")
     card.classList.add("card")
-    card.setAttribute("href", url)
+    card.setAttribute("href", articleInfo.url)
 
     const img = document.createElement("img")
-    img.src = thumbnail
+    img.src = articleInfo.thumbnail
 
     const descriptionEle = document.createElement("div")
     descriptionEle.classList.add("card-description")
 
     const titleEle = document.createElement("div")
     titleEle.classList.add("card-title")
-    titleEle.innerText = title
+    titleEle.innerText = articleInfo.title
 
     const categoryEle = document.createElement("div")
     categoryEle.classList.add("card-category")
-    categoryEle.dataset.category = category
-    if (category == "mainstory") {
+    categoryEle.dataset.category = articleInfo.category
+    switch (articleInfo.category) {
+    case "mainstory":
         categoryEle.innerHTML = "メインストーリー"
-    } else if (category == "campaign") {
+        break
+    case "campaign":
         categoryEle.innerHTML = "キャンペーン"
-    } else if (category == "pickup") {
+        break
+    case "pickup":
         categoryEle.innerHTML = "ピックアップ募集"
-    } else if (category == "notice") {
+        break
+    case "notice":
         categoryEle.innerHTML = "お知らせ"
-    } else if (category == "guide") {
+        break
+    case "guide":
         categoryEle.innerHTML = "攻略情報"
-    } else if (category == "goods") {
+        break
+    case "goods":
         categoryEle.innerHTML = "グッズ情報"
-    } else if (category == "other") {
+        break
+    case "other":
         categoryEle.innerHTML = "ゲーム全般"
+        break
     }
 
     const dateEle = document.createElement("div")
     dateEle.classList.add("card-date")
-    dateEle.innerText = date
+    dateEle.innerText = articleInfo.date
 
     card.appendChild(img)
     card.appendChild(descriptionEle)
@@ -82,22 +111,19 @@ function createResultCard(title: string, category: string, date: string, url: st
 
 /** URLに検索クエリがあった場合searchを呼び出す */
 async function searchQuery() {
+    const searchResultsElement = document.querySelector("#searchResult")
+    if (!searchResultsElement) throw new Error("Malformed DOM detected")
+
     const queryString = new URLSearchParams(window.location.search)
-    if (queryString.has("keyword")) {
-        const query = queryString.get("keyword")
-        if (query === null) {
-            return
-        }
-        const searchResult = await search(query)
-        let resultArticlesInfo: ArticleInfo
-        let cardElements: HTMLElement
-        for (let i = 0; i < searchResult.length; i++) {
-            resultArticlesInfo = await getArticleInfo(searchResult[i].date)
-            cardElements = createResultCard(resultArticlesInfo.title, resultArticlesInfo.category, resultArticlesInfo.date, resultArticlesInfo.url, resultArticlesInfo.thumbnail)
-            const resultsEle = document.getElementById("searchResult")
-            resultsEle!.appendChild(cardElements)
-        }
+    const queryKeyword = queryString.get("keyword")
+    if (!queryKeyword) return
+
+    const searchResult = await search(queryKeyword)
+    for (const articleDescription of searchResult) {
+        const articleInfo = await getArticleInfo(articleDescription.date)
+        searchResultsElement.appendChild(createResultCard(articleInfo))
     }
 }
+
 // window が読みこまれたときに発火
 void searchQuery()
