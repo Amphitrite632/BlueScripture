@@ -13,7 +13,7 @@ module.exports = {
     },
     extends: ["plugin:@typescript-eslint/recommended-requiring-type-checking"],
     rules: {
-        "@typescript-eslint/quotes": ["error", "double"],
+        "@typescript-eslint/quotes": ["error", "double", { "avoidEscape": true }],
         camelcase: "error",
         semi: ["error", "never"],
         indent: ["error", 4],
