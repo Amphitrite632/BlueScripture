@@ -6,5 +6,8 @@ Blue ScriptureはYostarによるスマートフォン向けゲーム「[ブル�
 [Blue Scripture - Discord](https://discord.gg/K7dRmaPDDY)  
 こちらのDiscordサーバーで最新の開発状況をチェックしたり、新機能の提案をしたりすることができます。ぜひご参加ください。
 
+## Contributing
+開発にご協力いただける場合はまず[CONTRIBUTING.md](CONTRIBUTING.md)をご確認ください。
+
 ## Contact
 ご用の際は[Twitter](https://twitter.com/Amphitrite632)、メール(amphie@amphitrite632.com)、またはDiscordまでお願いします。
