@@ -38,40 +38,40 @@ function getJSON() {
 /**JSONデータを生徒一覧ビューに変換する*/
 function jsonToList(jsonData: StudentInfo[]) {
     let output = ""
-    for (let i = 0; i < jsonData.length; i++) {
-        //output += "<a class=\"student\"  href=\"/students?student=" + jsonData[i].Name + "\" >\n<div class=\"student-container\">\n<div class=\"student-container-top\">\n"
+    for (const student of jsonData) {
+        //output += "<a class=\"student\"  href=\"/students?student=" + student.Name + "\" >\n<div class=\"student-container\">\n<div class=\"student-container-top\">\n"
         output += '<a class="student">\n<div class="student-container">\n<div class="student-container-top">\n'
-        if (jsonData[i].Role == "SPECIAL") {
+        if (student.Role == "SPECIAL") {
             output += '<div class="student-special"></div>\n'
-        } else if (jsonData[i].Role == "STRIKER") {
+        } else if (student.Role == "STRIKER") {
             output += '<div class="student-striker"></div>\n'
         }
 
-        output += '<div class="student-icon" style="background-image: url(/asset/images/student_icon/' + jsonData[i].Name + '_icon.png);"></div>\n'
+        output += '<div class="student-icon" style="background-image: url(/asset/images/student_icon/' + student.Name + '_icon.png);"></div>\n'
 
-        output += '<div class="student-name-container">\n<div class="student-name-ruby">' + jsonData[i].Ruby + '</div>\n<div class="student-name">' + jsonData[i].FullName + "</div>\n</div>\n</div>"
+        output += '<div class="student-name-container">\n<div class="student-name-ruby">' + student.Ruby + '</div>\n<div class="student-name">' + student.FullName + "</div>\n</div>\n</div>"
 
         output += '<div class="student-container-bottom">\n'
 
-        if (jsonData[i].Atk == "爆発") {
+        if (student.Atk == "爆発") {
             output += '<div class="student-params" style="background-color:var(--color-student-params-red);">爆発</div>\n'
-        } else if (jsonData[i].Atk == "貫通") {
+        } else if (student.Atk == "貫通") {
             output += '<div class="student-params" style="background-color:var(--color-student-params-yellow);">貫通</div>\n'
-        } else if (jsonData[i].Atk == "神秘") {
+        } else if (student.Atk == "神秘") {
             output += '<div class="student-params" style="background-color:var(--color-student-params-blue);">神秘</div>\n'
         }
 
-        if (jsonData[i].Def == "軽装") {
+        if (student.Def == "軽装") {
             output += '<div class="student-params" style="background-color:var(--color-student-params-red);">軽装</div>\n'
-        } else if (jsonData[i].Def == "重装") {
+        } else if (student.Def == "重装") {
             output += '<div class="student-params" style="background-color:var(--color-student-params-yellow);">重装</div>\n'
-        } else if (jsonData[i].Def == "特殊") {
+        } else if (student.Def == "特殊") {
             output += '<div class="student-params" style="background-color:var(--color-student-params-blue);">特殊</div>\n'
         }
 
-        output += '<div class="student-params" style="background-color:var(--color-student-params-gray);">' + jsonData[i].Position + "</div>\n"
+        output += '<div class="student-params" style="background-color:var(--color-student-params-gray);">' + student.Position + "</div>\n"
 
-        output += '<div class="student-params" style="background-color:var(--color-student-params-gray);">' + jsonData[i].Class + "</div>\n"
+        output += '<div class="student-params" style="background-color:var(--color-student-params-gray);">' + student.Class + "</div>\n"
 
         output += "</div>\n</div>\n</a>"
     }
@@ -84,19 +84,19 @@ function jsonToList(jsonData: StudentInfo[]) {
 function filterList() {
     const query: string[] = []
     const filterEles = Array.prototype.slice.call(document.getElementsByClassName("filter")) as HTMLInputElement[]
-    for (let i = 0; i < filterEles.length; i++) {
-        if (filterEles[i].checked == true) {
-            query.push(filterEles[i].value)
+    for (const filterEle of filterEles) {
+        if (filterEle.checked == true) {
+            query.push(filterEle.value)
         }
     }
     void fetch(path)
         .then((response) => response.json())
         .then((json: StudentInfo[]) => {
             let arr = json.slice()
-            for (let i = 0; i < query.length; i++) {
+            for (const condition of query) {
                 arr = arr.filter((elem) => {
                     const value = Object.values(elem)
-                    return value.includes(query[i])
+                    return value.includes(condition)
                 })
             }
             const acsendEle = document.getElementById("name-ascend") as HTMLInputElement
