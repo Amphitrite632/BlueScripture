@@ -4,18 +4,18 @@ const filtersEle = document.getElementById("filters") //フィルター要素を
 let filtersEleHeight = 0
 const path = "/asset/json/studentslist.json" //生徒一覧のJSONファイルのパスを設定
 
-interface StudentInfo {
+type StudentInfo = {
     URL: string
     Name: string
     FullName: string
     Ruby: string
-    Role: string
+    Role: Role
     Weapon: string
-    Position: string
-    Class: string
-    School: string
-    Atk: string
-    Def: string
+    Position: Position
+    Class: Class
+    School: School
+    Atk: Atk
+    Def: Def
     Town_apt: string
     Outdoor_apt: string
     Indoor_apt: string
@@ -25,12 +25,77 @@ interface StudentInfo {
     Birthday: string
 }
 
+const ROLE_TYPES = ["STRIKER", "SPECIAL"] as const
+type Role = typeof ROLE_TYPES[number]
+
+const ATK_TYPES = ["爆発", "貫通", "神秘"] as const
+type Atk = typeof ATK_TYPES[number]
+
+const DEF_TYPES = ["重装", "軽装", "特殊"] as const
+type Def = typeof DEF_TYPES[number]
+
+const POSITION_TYPES = ["FRONT", "MIDDLE", "BACK"] as const
+type Position = typeof POSITION_TYPES[number]
+
+const CLASS_TYPES = ["タンク", "アタッカー", "ヒーラー", "サポーター", "T.S"] as const
+type Class = typeof CLASS_TYPES[number]
+
+const SCHOOL_TYPES = ["アビドス", "アリウス", "ゲヘナ", "百鬼夜行", "ミレニアム", "レッドウィンター", "山海経", "SRT特殊学園", "トリニティ", "ヴァルキューレ", "その他"] as const
+type School = typeof SCHOOL_TYPES[number]
+
+type StudentQuery = { key: "Role"; values: Role[] } | { key: "Atk"; values: Atk[] } | { key: "Def"; values: Def[] } | { key: "Position"; values: Position[] } | { key: "Class"; values: Class[] } | { key: "School"; values: School[] }
+
+type Query = {
+    Role?: Role[]
+    Atk?: Atk[]
+    Def?: Def[]
+    Position?: Position[]
+    Class?: Class[]
+    School?: School[] 
+}
+
+function checkQueryValues<T extends string>(selections: readonly T[], value: string): value is T {
+    return selections.includes(value as T)
+}
+
+/**クエリをもとに条件に合う生徒をフィルターする */
+function filterWithQueries(students: StudentInfo[], queries: StudentQuery[]): StudentInfo[] {
+    const filter: Query = {}
+    for (const query of queries){
+        switch(query.key){
+        case "Role":
+            filter.Role = query.values
+            break
+        case "Atk":
+            filter.Atk = query.values
+            break
+        case "Def":
+            filter.Def = query.values
+            break
+        case "Position":
+            filter.Position = query.values
+            break
+        case "School":
+            filter.School = query.values
+            break
+        }
+    }
+    return students.filter((student) => {
+        const isRoleMatched = typeof filter.Role === "undefined" || filter.Role.includes(student.Role)
+        const isAtkMatched = typeof filter.Atk === "undefined" || filter.Atk.includes(student.Atk)
+        const isDefMatched = typeof filter.Def === "undefined" || filter.Def.includes(student.Def)
+        const isPositionMatched = typeof filter.Position === "undefined" || filter.Position.includes(student.Position)
+        const isSchoolMatched = typeof filter.School === "undefined" || filter.School.includes(student.School)
+        return isRoleMatched && isAtkMatched && isDefMatched && isPositionMatched && isSchoolMatched
+    })
+}
+
 /**生徒一覧のJSONファイルを取得して関数[jsonToList]に渡す*/
 function getJSON() {
     const req = new Request(path)
     void fetch(req)
         .then((response) => response.json())
-        .then((json: [StudentInfo]) => {
+        .then((json: StudentInfo[]) => {
             jsonToList(json)
         })
 }
@@ -80,24 +145,53 @@ function jsonToList(jsonData: StudentInfo[]) {
     }
 }
 
+/**フィルター用のクエリを生成する */
+function queryGenerator(): StudentQuery[] {
+    const queries: StudentQuery[] = []
+
+    const checkedRoleValues = Array.from(document.querySelectorAll<HTMLInputElement>("input.filter[data-filter-key=Role]:checked"))
+        .map((e) => e.value)
+        .filter((x): x is Role => checkQueryValues<Role>(ROLE_TYPES, x))
+    if (checkedRoleValues.length !== 0) queries.push({ key: "Role", values: checkedRoleValues })
+
+    const checkedAtkValues = Array.from(document.querySelectorAll<HTMLInputElement>("input.filter[data-filter-key=Atk]:checked"))
+        .map((e) => e.value)
+        .filter((x): x is Atk => checkQueryValues<Atk>(ATK_TYPES, x))
+    if (checkedAtkValues.length !== 0) queries.push({ key: "Atk", values: checkedAtkValues })
+
+    const checkedDefValues = Array.from(document.querySelectorAll<HTMLInputElement>("input.filter[data-filter-key=Def]:checked"))
+        .map((e) => e.value)
+        .filter((x): x is Def => checkQueryValues<Def>(DEF_TYPES, x))
+    if (checkedDefValues.length !== 0) queries.push({ key: "Def", values: checkedDefValues })
+
+    const checkedPositionValues = Array.from(document.querySelectorAll<HTMLInputElement>("input.filter[data-filter-key=Position]:checked"))
+        .map((e) => e.value)
+        .filter((x): x is Position => checkQueryValues<Position>(POSITION_TYPES, x))
+    if (checkedPositionValues.length !== 0) queries.push({ key: "Position", values: checkedPositionValues })
+
+    const checkedClassValues = Array.from(document.querySelectorAll<HTMLInputElement>("input.filter[data-filter-key=Class]:checked"))
+        .map((e) => e.value)
+        .filter((x): x is Class => checkQueryValues<Class>(CLASS_TYPES, x))
+    if (checkedClassValues.length !== 0) queries.push({ key: "Class", values: checkedClassValues })
+
+    const checkedSchoolValues = Array.from(document.querySelectorAll<HTMLInputElement>("input.filter[data-filter-key=School]:checked"))
+        .map((e) => e.value)
+        .filter((x): x is School => checkQueryValues<School>(SCHOOL_TYPES, x))
+    if (checkedSchoolValues.length !== 0) queries.push({ key: "School", values: checkedSchoolValues })
+    return queries
+}
+
 /**生徒一覧を名前順にソートする*/
 function filterList() {
-    const query: string[] = []
-    const filterEles = Array.prototype.slice.call(document.getElementsByClassName("filter")) as HTMLInputElement[]
-    for (const filterEle of filterEles) {
-        if (filterEle.checked == true) {
-            query.push(filterEle.value)
-        }
-    }
+    const queries = queryGenerator()
     void fetch(path)
         .then((response) => response.json())
         .then((json: StudentInfo[]) => {
-            let arr = json.slice()
-            for (const condition of query) {
-                arr = arr.filter((elem) => {
-                    const value = Object.values(elem)
-                    return value.includes(condition)
-                })
+            let arr: StudentInfo[] = []
+            if (queries.length !== 0) {
+                arr = filterWithQueries(json, queries)
+            } else {
+                arr = json
             }
             const acsendEle = document.getElementById("name-ascend") as HTMLInputElement
             const decsendEle = document.getElementById("name-descend") as HTMLInputElement
