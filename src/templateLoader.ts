@@ -5,6 +5,8 @@ void (async () => {
         const fileArea = document.getElementById("header")
         if (fileArea != null) {
             fileArea.innerHTML = text
+            const event:Event = new Event("headerLoaded")
+            window.dispatchEvent(event)
         }
     }
 })()
@@ -16,6 +18,8 @@ void (async () => {
         const fileArea = document.getElementById("footer")
         if (fileArea != null) {
             fileArea.innerHTML = text
+            const event:Event = new Event("footerLoaded")
+            window.dispatchEvent(event)
         }
     }
 })()

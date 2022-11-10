@@ -1,5 +1,5 @@
 let isDropDownShow = false
-const dropdownNaviEle = document.getElementById("navi-dropdown")
+let dropdownNaviEle:HTMLElement | null
 
 function onMenuButtonClick() {
     if (isDropDownShow == false) {
@@ -14,3 +14,7 @@ function onMenuButtonClick() {
         isDropDownShow = false
     }
 }
+
+window.addEventListener("headerLoaded",(e) => {
+    dropdownNaviEle = document.getElementById("navi-dropdown")
+})
