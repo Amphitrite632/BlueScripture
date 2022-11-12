@@ -196,5 +196,137 @@
 			"Landscape": "Town",
 			"DropItem": "神名文字（シロコ）,初級戦術教育BD（トリニティ）,初級戦術教育BD（アビドス）"
 		}
+	],
+	"Area04": [
+		{
+			"StageID": "4-1N",
+			"StageName": "北区多磨川",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 25,
+			"Landscape": "Outdoor",
+			"DropItem": "T2帽子,T2グローブ,T2シューズ"
+		},
+		{
+			"StageID": "4-2N",
+			"StageName": "南区西川",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 26,
+			"Landscape": "Outdoor",
+			"DropItem": "T2グローブ,T2バッグ,T2帽子"
+		},
+		{
+			"StageID": "3-3N",
+			"StageName": "アビドス本町3番街",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 28,
+			"Landscape": "Outdoor",
+			"DropItem": "T2シューズ,T2帽子,T2グローブ"
+		},
+		{
+			"StageID": "4-4N",
+			"StageName": "砂尾町2丁目",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 29,
+			"Landscape": "Outdoor",
+			"DropItem": "T2バッグ,T2シューズ,T2ヘアピン"
+		},
+		{
+			"StageID": "4-5N",
+			"StageName": "砂尾町3丁目",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 30,
+			"Landscape": "Outdoor",
+			"DropItem": "T2バッジ,T2バッグ,T2帽子"
+		},
+		{
+			"StageID": "4-1H",
+			"StageName": "多磨川北部緑地帯",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 26,
+			"Landscape": "Outdoor",
+			"DropItem": "神名文字（アスナ）,T2帽子,T2お守り,T2バッグ"
+		},
+		{
+			"StageID": "4-2H",
+			"StageName": "アビドス本町1番街",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 30,
+			"Landscape": "Outdoor",
+			"DropItem": "神名文字（フィーナ）,T2グローブ,T2腕時計,T2バッジ"
+		},
+		{
+			"StageID": "4-3H",
+			"StageName": "砂尾町5丁目",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 34,
+			"Landscape": "Outdoor",
+			"DropItem": "神名文字（ユウカ）,T2シューズ,T2ネックレス,T2ヘアピン"
+		}
+	],
+	"Area05": [
+		{
+			"StageID": "5-1N",
+			"StageName": "アビドス本線 城森駅",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 32,
+			"Landscape": "Outdoor",
+			"DropItem": "T2ヘアピン,T2バッジ,T2腕時計"
+		},
+		{
+			"StageID": "5-2N",
+			"StageName": "アビドス本線 四ツ葉駅",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 33,
+			"Landscape": "Outdoor",
+			"DropItem": "T2ヘアピン,T2腕時計,T2ネックレス"
+		},
+		{
+			"StageID": "5-3N",
+			"StageName": "西部遺跡地帯",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 34,
+			"Landscape": "Outdoor",
+			"DropItem": "T2お守り,T2腕時計,T2ヘアピン"
+		},
+		{
+			"StageID": "5-4N",
+			"StageName": "カイザーPMC駐屯地",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 35,
+			"Landscape": "Outdoor",
+			"DropItem": "T2腕時計,T2お守り,T2ネックレス"
+		},
+		{
+			"StageID": "5-5N",
+			"StageName": "東部遺跡地帯",
+			"Difficulty": "Normal",
+			"RecommendedLevel": 36,
+			"Landscape": "Outdoor",
+			"DropItem": "T2ネックレス,T2バッジ,T2お守り"
+		},
+		{
+			"StageID": "5-1H",
+			"StageName": "東区新木呂尾駅",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 32,
+			"Landscape": "Outdoor",
+			"DropItem": "神名文字（アカリ）,T2バッグ,T2帽子,T2お守り"
+		},
+		{
+			"StageID": "5-2H",
+			"StageName": "東部遺跡の中心部",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 36,
+			"Landscape": "Outdoor",
+			"DropItem": "神名文字（ジュンコ）,T2バッジ,T2グローブ,T2腕時計"
+		},
+		{
+			"StageID": "5-3H",
+			"StageName": "東部遺跡地帯の外郭",
+			"Difficulty": "Hard",
+			"RecommendedLevel": 40,
+			"Landscape": "Outdoor",
+			"DropItem": "神名文字（ヒフミ）,T2ヘアピン,T2シューズ,T2ネックレス"
+		}
 	]
 }
