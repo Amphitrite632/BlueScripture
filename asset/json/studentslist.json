@@ -560,6 +560,26 @@
     "Birthday": "1/3"
   },
   {
+    "URL": "https://bluearchive.wikiru.jp/?%E3%82%B7%E3%82%B0%E3%83%AC",
+    "Name": "シグレ",
+    "FullName": "間宵 シグレ",
+    "Ruby": "まよい しぐれ",
+    "Role": "STRIKER",
+    "Weapon": "GL",
+    "Position": "MIDDLE",
+    "Class": "アタッカー",
+    "School": "レッドウィンター",
+    "Atk": "爆発",
+    "Def": "重装",
+    "Town_apt": "D",
+    "Outdoor_apt": "S",
+    "Indoor_apt": "B",
+    "Equip1": "グローブ",
+    "Equip2": "ヘアピン",
+    "Equip3": "腕時計",
+    "Birthday": "1/22"
+  },
+  {
     "URL": "https://bluearchive.wikiru.jp/?%E3%82%B7%E3%83%A5%E3%83%B3",
     "Name": "シュン",
     "FullName": "春原 シュン",
@@ -1098,6 +1118,26 @@
     "Equip2": "ヘアピン",
     "Equip3": "腕時計",
     "Birthday": "11/27"
+  },
+  {
+    "URL": "https://bluearchive.wikiru.jp/?%E3%83%92%E3%83%9E%E3%83%AA",
+    "Name": "ヒマリ",
+    "FullName": "明星 ヒマリ",
+    "Ruby": "あけぼし ひまり",
+    "Role": "SPECIAL",
+    "Weapon": "HG",
+    "Position": "BACK",
+    "Class": "サポーター",
+    "School": "ミレニアム",
+    "Atk": "貫通",
+    "Def": "軽装",
+    "Town_apt": "S",
+    "Outdoor_apt": "B",
+    "Indoor_apt": "D",
+    "Equip1": "シューズ",
+    "Equip2": "ヘアピン",
+    "Equip3": "腕時計",
+    "Birthday": "12/10"
   },
   {
     "URL": "https://bluearchive.wikiru.jp/?%E3%83%92%E3%83%A8%E3%83%AA",
