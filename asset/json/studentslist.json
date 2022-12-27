@@ -720,6 +720,26 @@
     "Birthday": "6/25"
   },
   {
+    "URL": "https://bluearchive.wikiru.jp/?%E3%82%BB%E3%83%AA%E3%83%8A%EF%BC%88%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B9%EF%BC%89",
+    "Name": "セリナ（クリスマス）",
+    "FullName": "鷲見 セリナ（クリスマス）",
+    "Ruby": "すみ せりな",
+    "Role": "STRIKER",
+    "Weapon": "AR",
+    "Position": "MIDDLE",
+    "Class": "サポーター",
+    "School": "トリニティ",
+    "Atk": "貫通",
+    "Def": "特殊",
+    "Town_apt": "D",
+    "Outdoor_apt": "S",
+    "Indoor_apt": "B",
+    "Equip1": "シューズ",
+    "Equip2": "ヘアピン",
+    "Equip3": "お守り",
+    "Birthday": "1/6"
+  },
+  {
     "URL": "https://bluearchive.wikiru.jp/?%E3%83%81%E3%82%A7%E3%83%AA%E3%83%8E",
     "Name": "チェリノ",
     "FullName": "連河 チェリノ",
@@ -978,6 +998,26 @@
     "Equip2": "ヘアピン",
     "Equip3": "腕時計",
     "Birthday": "9/1"
+  },
+  {
+    "URL": "https://bluearchive.wikiru.jp/?%E3%83%8F%E3%83%8A%E3%82%A8%EF%BC%88%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B9%EF%BC%89",
+    "Name": "ハナエ（クリスマス）",
+    "FullName": "朝顔 ハナエ",
+    "Ruby": "あさがお はなえ",
+    "Role": "SPECIAL",
+    "Weapon": "AR",
+    "Position": "BACK",
+    "Class": "ヒーラー",
+    "School": "トリニティ",
+    "Atk": "神秘",
+    "Def": "特殊",
+    "Town_apt": "B",
+    "Outdoor_apt": "D",
+    "Indoor_apt": "S",
+    "Equip1": "シューズ",
+    "Equip2": "バッグ",
+    "Equip3": "ネックレス",
+    "Birthday": "5/12"
   },
   {
     "URL": "https://bluearchive.wikiru.jp/?%E3%83%8F%E3%83%AB%E3%83%8A",
