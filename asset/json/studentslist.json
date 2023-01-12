@@ -1420,6 +1420,26 @@
     "Birthday": "12/8"
   },
   {
+    "URL": "https://bluearchive.wikiru.jp/?%E3%83%9F%E3%83%8D",
+    "Name": "ミネ",
+    "FullName": "蒼森 ミネ",
+    "Ruby": "あおもり みね",
+    "Role": "STRIKER",
+    "Weapon": "SG",
+    "Position": "FRONT",
+    "Class": "タンク",
+    "School": "トリニティ",
+    "Atk": "爆発",
+    "Def": "軽装",
+    "Town_apt": "B",
+    "Outdoor_apt": "S",
+    "Indoor_apt": "D",
+    "Equip1": "シューズ",
+    "Equip2": "バッグ",
+    "Equip3": "お守り",
+    "Birthday": "11/23"
+  },
+  {
     "URL": "https://bluearchive.wikiru.jp/?%E3%83%9F%E3%83%A2%E3%83%AA",
     "Name": "ミモリ",
     "FullName": "水羽 ミモリ",
